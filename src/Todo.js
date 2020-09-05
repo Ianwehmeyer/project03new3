@@ -1,15 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Todo extends Component {
-    render() {
-        return (
 
-            <div id="App">
-                <form id="todoform1">
-                    <input type="text" placeholder="Enter What you need to do..."/>    
-                    <button type="submit">Press Me</button>
-                </form>    
-            </div>
-        )
-    }
-}
+export default props => (
+<div style={{ display: "flex", justifyContent: 'center'}}>
+<div style={{
+    textDecoration: props.todo.complete ? 'line-through' : ""
+}} onClick={props.slashThrough}>{props.todo.text}</div>
+<button>Delete</button>
+<button onClick={props.deleteItem}>X</button>
+</div>
+)
