@@ -50,6 +50,25 @@ export default class Todo extends Component {
                     onClick={() => this.addItem()}>
                         Add To List
                     </button>
+                    <br/>
+                    
+                    <ul>
+                        {this.state.list.map(item => {
+                            //takes in the current state in list - I believe
+                            //this.state.list.map should map over item
+                            return(
+                                //returning the list
+                                <li key={item.id
+                                //needs unique key
+                                }>
+                                    {item.value}
+                                    <button onClick={() => this.deletItem(item.id)
+                                    //will take item so we can delete item id (double check)
+                                    } >X</button>
+                                </li>
+                            )
+                        })}
+                    </ul>
                 
             </div>
         )
