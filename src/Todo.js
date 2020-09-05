@@ -35,6 +35,16 @@ export default class Todo extends Component {
             newItem:""
         })
     }
+    //delete button script
+    deleteItem(id) {
+        //copies list of items
+        const list = [...this.state.list]
+
+        //will grab item clicked by button
+        const updatedList = list.filter(item => item.id !== id)
+
+        this.setState({list: updatedList})
+    }
     render() {
         return (
             <div>
@@ -62,7 +72,7 @@ export default class Todo extends Component {
                                 //needs unique key
                                 }>
                                     {item.value}
-                                    <button onClick={() => this.deletItem(item.id)
+                                    <button onClick={() => this.deleteItem(item.id)
                                     //will take item so we can delete item id (double check)
                                     } >X</button>
                                 </li>
